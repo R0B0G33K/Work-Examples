@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BU Key Request</title>
+    <link rel="stylesheet" type="text/css" href="/StyleSheet.css">
+</head>
+
+<body>
+    <div id="backWrapper">
+        <% if(type != 'res'){%>
+        <a id="back" href="/questionres">
+            <img src="/Images/back.svg" alt="back" />
+        </a>
+        <%}else{%>
+        <a id="back" href="/">
+            <img src="/Images/back.svg" alt="back" />
+        </a>
+        <%}%>
+    </div>
+    <h1>Butler Key Checkout</h1>
+    <form id="formCenter" method="POST" action="/keycheckout/<%=type%>/<%=numberKeys%>/submit">
+        <div id="keys">
+            <% for(let j = 1; j < numberKeys+1; j++) { %>
+            <div id="key <%=j%>" class="key">
+                <h4>Key <%=j%></h4>
+                <div class="block">
+                    <label>Choose a location</label>
+                    <select id="locations" name="key<%=j%>Location" required>
+                        <% 
+                        var options = arraylist;
+                        for(var i=0; i<arraylist.length; i++){
+                        %>  <option value="<%=options[i]%>"><%=options[i]%></option><%
+                        }
+                        %> 
+                    </select>
+                </div>
+                <div class="block">
+                    <label>Purpose of Key</label>
+                    <input type="text" id="key<%=j%>Purpose" name="key<%=j%>Purpose" required>
+                </div>
+                <% if(type != 'res'){%>
+                <div class="block">
+                    <%   
+                        var date = new Date();
+                        var date2 = new Date();
+                        date2.setHours(16,30,0,0);
+                        date.setMinutes(-(date.getTimezoneOffset()));
+                        date2.setMinutes(-(date2.getTimezoneOffset()));
+                        date2.setMinutes( date2.getMinutes() + 30 );
+                        if(date.getTime() > date2.getTime()){
+                    %>
+                        <p>ERROR: TIME KEEPING ERROR, please consult website administrators</p>
+                    <%}%>
+                    <label>When will you return the key?</label>
+                    <input type="datetime-local" id="key<%=j%>ReturnTime" name="key<%=j%>ReturnTime" min="<%=date.toISOString().slice(0, 17)%>00"  max="<%=date2.toISOString().slice(0, 19)%>" required>
+                    <input type="hidden" id="timeoffset" name="timeoffset" value="<%=date.getTimezoneOffset()%>">
+                </div>
+                <%}%>
+            </div>
+            <% } %>
+        </div>
+        <% if (numberKeys != 1){ %>
+        <a href="/keycheckout/<%=type%>/<%=numberKeys-1%>" id="linkB"><span>Remove Key</span></a>
+        <%}%>
+        <% if (numberKeys < 10){ %>
+            <a href="/keycheckout/<%=type%>/<%=numberKeys+1%>" id="linkB"><span>Add Key</span></a>
+        <%}%>
+
+        <%if(type == 'res'){
+            var today = new Date();
+            //make it 4:30
+            today.setHours(-4, 0, 0);
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate());
+            const monthAway = new Date(today);
+            monthAway.setDate( tomorrow.getDate() + 30);   
+                //TO DO: fix dynamic min and max values  
+        %>
+        <div class="block">
+            <label>Start Date for Reservation</label>
+            <input type="date" id="date" name="sresdate" min="<%=tomorrow.toISOString().slice(0, 10)%>" max="<%=monthAway.toISOString().slice(0, 10)%>" required>
+        </div>
+        <div class="block">
+            <label>End Date for Reservation</label>
+            <input type="date" id="date" name="eresdate"  min="<%=tomorrow.toISOString().slice(0, 10)%>" max="<%=monthAway.toISOString().slice(0, 10)%>" required>
+        </div>
+        <%}%>
+        <div class="block">
+            <label>Your Full Name</label>
+            <input type="text" id="PersonName" name="name" required>
+        </div>
+        <div class="block">
+            <label>Phone Number</label>
+            <input type="tel" id="PhoneNumber" name="phoneNum" required>
+        </div>
+        <div class="block">
+            <label>Company Name</label>
+            <input type="text" id="CompanyName" name="company" required>
+        </div>
+        <%if(type == 'res'){%>
+            <div class="optional">
+                <h5>Sponser Info (required)</h5>
+                <div class="block">
+                    <label>Sponser Name</label>
+                    <input type="text" id="sponsName" name="sponsName" required>
+                </div>
+                <div class="block">
+                    <label>Sponser email</label>
+                    <input type="email" id="sponsEmail"  name="sponsEmail" required>
+                </div>
+                <div class="block">
+                    <label>Sponser Phone Number</label>
+                    <input type="tel" id="sponsPhoneNum"  name="sponsPhoneNum" required>
+                </div>
+            </div>
+        <%} else{%>
+            <div class="optional">
+                <h5>Sponser Info (optional)</h5>
+                <div class="block">
+                    <label>Sponser Name</label>
+                    <input type="text" id="sponsName" name="sponsName">
+                </div>
+                <div class="block">
+                    <label>Sponser email</label>
+                    <input type="email" id="sponsEmail"  name="sponsEmail">
+                </div>
+                <div class="block">
+                    <label>Sponser Phone Number</label>
+                    <input type="tel" id="sponsPhoneNum"  name="sponsPhoneNum">
+                </div>
+            </div>
+        <%}%>
+        <div>
+            <canvas id="sig-canvas" width="620" height="160">
+		 		You need a better browser to sign!
+             </canvas> 
+             <input type="hidden" id="sig-dataHolder" name="signiture">   
+        </div>
+        <div id="submitWrapper">
+            <input id="sig-submitBtn" type="image" src="/Images/confirm.svg" alt="Submit" />
+        </div>
+    </form>
+    <script src="/signiture.js"></script>
+    <script>
+        window.addEventListener("resize", resizeCanvas, false);
+        window.addEventListener("load", resizeCanvas, false);
+ 
+        function resizeCanvas(e) {
+        var myCanvas = document.getElementById("sig-canvas");
+        myCanvas.width = (document.documentElement.clientWidth)*.55;
+        myCanvas.height = (document.documentElement.clientHeight)*.2;
+        }    
+        
+    </script>
+</body>
+</html>

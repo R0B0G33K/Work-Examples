@@ -1,0 +1,47 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BU Key Request</title>
+    <link rel="stylesheet" type="text/css" href="/StyleSheet.css">
+</head>
+
+<body>
+    <div id="backWrapper">
+        <a id="back" href="/admin">
+            <img src="/Images/back.svg" alt="back"/>
+        </a>
+    </div>
+    <br>
+    <% if (personsHere == null){%>
+        <h1>No Person Records Yet</h1>
+    <%}else{%>
+    <table class="review" id="admin">
+        <div class="container"> 
+            <tr >
+                <th>Person ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Company</th>
+                <th>Sponser Name</th>
+                <th>Sponser Email</th>
+                <th>Sponser Phone Number</th>
+                <th>Signiture</th>
+            </tr>
+            <% for(let i = 0; i < personsHere.length; i++) { %>
+                <tr>
+                    <td><%= personsHere[i].personID %></td>
+                    <td><%= personsHere[i].name %></td>
+                    <td><%= personsHere[i].phoneNum %></td>
+                    <td><%= personsHere[i].company %></td>
+                    <td><%= personsHere[i].sponsName %></td>
+                    <td><%= personsHere[i].sponsEmail %></td>
+                    <td><%= personsHere[i].sponsPhoneNum %></td>
+                    <td><img id="signImage" src='<%= personsHere[i].signiture.toString('utf-8')%>'></td>
+                </tr>
+            <% } %>
+        </div>
+    </table>
+    <%}%>
+</body>
+
+</html>

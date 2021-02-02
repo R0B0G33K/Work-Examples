@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="307" height="212" viewBox="0 0 307 212">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        fill: #00144a;
+        font-size: 61px;
+        font-family: Georgia;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Group_17" data-name="Group 17" transform="translate(-130 -392)">
+    <g id="Rectangle_1" data-name="Rectangle 1" class="cls-1" transform="translate(130 392)">
+      <rect class="cls-3" width="307" height="212" rx="68"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="306" height="211" rx="67.5"/>
+    </g>
+    <text id="Yes" class="cls-2" transform="translate(284 520)"><tspan x="-46.688" y="0">Yes</tspan></text>
+  </g>
+</svg>

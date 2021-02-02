@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BU Key Request</title>
+    <link rel="stylesheet" type="text/css" href="/StyleSheet.css">
+</head>
+
+<body>
+    <div id="backWrapper">
+        <a  id="back" href="/questionres">
+            <img src="/Images/back.svg" alt="back"/>
+        </a>
+    </div>
+    <h1>Reserved Key</h1>
+    <h2>Please enter the phone number used to reserve the key.</h2>
+    <form id="center" method="POST" action="/keycheckout/checkres">
+        <input type="tel"
+             name="pnum"
+             id="phone_num"/>
+        <div id="submitWrapper">
+            <input id="submit" type="image" src="/Images/confirm.svg" alt="Submit" />
+        </div>
+    </form>
+</body>
+</html>

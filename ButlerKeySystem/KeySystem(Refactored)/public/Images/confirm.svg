@@ -1,0 +1,29 @@
+<svg id="Confirm_Button" data-name="Confirm Button" xmlns="http://www.w3.org/2000/svg" width="226" height="66" viewBox="0 0 226 66">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        fill: #00144a;
+        font-size: 38px;
+        font-family: Georgia;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Rectangle_138" data-name="Rectangle 138" class="cls-1">
+    <rect class="cls-3" width="226" height="66"/>
+    <rect class="cls-4" x="0.5" y="0.5" width="225" height="65"/>
+  </g>
+  <text id="Confirm" class="cls-2" transform="translate(43 47)"><tspan x="0" y="0">Confirm</tspan></text>
+</svg>

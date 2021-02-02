@@ -1,0 +1,47 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BU Key Request</title>
+    <link rel="stylesheet" type="text/css" href="/StyleSheet.css">
+</head>
+
+<body>
+    <div id="backWrapper">
+        <a id="back" href="/admin">
+            <img src="/Images/back.svg" alt="back"/>
+        </a>
+    </div>
+    <br>
+    <% if (bookingsMade == null){%>
+        <h1>No Bookings Yet</h1>
+    <%}else{%>
+    <table class="review" id="admin">
+        <div class="container"> 
+            <tr >
+                <th>Key Number</th>
+                <th>Person ID</th>
+                <th>Created Time</th>
+                <th>Predicted Time</th>
+                <th>Returned Time</th>
+                <th>Reason</th>
+                <th>Sign Out Attendent</th>
+                <th>Return Attendent</th>
+            </tr>
+            <% for(let i = 0; i < bookingsMade.length; i++) { %>
+                <tr>
+                    <td><%= bookingsMade[i].keyNum %></td>
+                    <td><%= bookingsMade[i].personID %></td>
+                    <td><%= bookingsMade[i].createdAt %></td>
+                    <td><%= bookingsMade[i].predictedTime %></td>
+                    <td><%= bookingsMade[i].returnedTime %></td>
+                    <td><%= bookingsMade[i].reason %></td>
+                    <td><%= bookingsMade[i].attendent %></td>
+                    <td><%= bookingsMade[i].attendent2 %></td>
+                </tr>
+            <% } %>
+        </div>
+    </table>
+    <%}%>
+</body>
+
+</html>

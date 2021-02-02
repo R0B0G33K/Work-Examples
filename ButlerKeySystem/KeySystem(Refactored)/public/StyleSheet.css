@@ -1,0 +1,187 @@
+﻿body {
+    background-color: #00144A;
+}
+
+h1 {
+    font-size: 5vw;
+    font-family: Georgia;
+    text-align:center;
+    color:white;
+}
+
+h2 {
+    font-size: 3vw;
+    font-family: Georgia;
+    text-align: center;
+    color: white;
+}
+
+h3{
+    font-size: 2vw;
+    font-family: Georgia;
+    text-align: center;
+    color: white;
+}
+
+#linkWrapper {
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+
+#link {
+    font-size: 2vw;
+    font-family: Georgia;
+    text-align: center;
+    color: white;
+    width:initial;
+}
+
+#center {
+    padding-top: 2%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#textInput {
+    width: 25%;
+    font-size:2vw;
+    display: inline-block;
+}
+
+#phone_num {
+    width: 25%;
+    font-size:2vw;
+    display: inline-block;
+}
+
+#submit {
+    width: 30%;
+    display: inline-block;
+}
+
+#submitWrapper{
+    padding-top: 2%;
+}
+
+#wrapper {
+    padding-top: 10%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+#backWrapper {
+    width: 100%;
+    text-align:right;
+}
+
+#back {
+    width: 15%;
+}
+
+#button1 {
+    padding-right: 10%;
+}
+
+a{
+    width: 20%;
+    display:inline-block;
+}
+
+img:not(.png) {
+    width: 100%;
+}
+
+#sig-canvas {
+    border: 2px dotted #CCCCCC;
+    border-radius: 15px;
+    cursor: crosshair;
+    background: #ffffff;
+  }
+
+.block{
+    font-size: 2vw;
+    font-family: Georgia;
+    color: white;
+    text-align: left;
+    padding-bottom: 3%;
+}
+
+#linkB{
+    font-size: 2vw;
+    width: 49%;
+    font-family: Georgia;
+    color: white;
+    padding-top: 3%;
+    padding-bottom: 10%;
+}
+
+.block input, .block select{
+    width: 100%;
+    font-size: 2vw;
+    font-family: Georgia;
+}
+
+#formCenter{
+    padding-top: 2%;
+    width: 55%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.key{
+    text-align: center;
+    margin-top: 5%;
+    outline: 0.3vw solid white;
+    outline-offset: 0.5vw;
+}
+
+h4, h5{
+    font-size: 2.5vw;
+    font-family: Georgia;
+    color: white; 
+    margin-bottom: -0.01vw; 
+}
+
+.key input{
+    width: 95%;
+}
+
+.optional{
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.review {
+    font-family: Georgia;
+    border-collapse: collapse;
+    width: 50%;
+    background-color: white;
+    margin: auto;
+  }
+  
+.review td{
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+#admin{
+    width: 90%;
+}
+
+#review1 td{
+    border-collapse: collapse;
+    border: none;
+}
+#review1 tr{
+    border-top: 1px solid #ddd;
+}
+  
+#signImage{
+    background: white; 
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    display: block;
+}

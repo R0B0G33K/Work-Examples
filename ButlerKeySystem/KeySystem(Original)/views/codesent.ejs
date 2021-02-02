@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BU Key Request</title>
+    <link rel="stylesheet" type="text/css" href="/StyleSheet.css">
+</head>
+
+<body>
+    <h1>Please enter code sent to phone.</h1>
+    <form id="center"  method="POST" action="/keycheckout/<%=type%>/compare">
+        <input id="textInput" type="text" name="code" required>
+        <div id="linkWrapper">
+            <a id="link" href="/keycheckout/now/1">I did not receive a code.</a>
+        </div>
+        <input type="hidden" name="vcode" value="<%=verification%>">
+        <input type="hidden" name="pnum" value="<%=phoneNumber%>">
+        <div id="submitWrapper">
+            <input id="submit" type="image" src="/Images/confirm.svg" alt="Submit" />
+        </div>
+    </form>
+</body>
+</html>

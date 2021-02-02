@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BU Key Request</title>
+    <link rel="stylesheet" type="text/css" href="/StyleSheet.css">
+</head>
+
+<body>
+    <h1>Review</h1>
+    <%if(type == 'res'){%>
+    <h2>Please input the predicted time of key drop off then</h2>
+    <%}%>
+    <h2>Please hand device and ID to attendant.</h2>
+
+    <table class="review" id="review1">
+        <tr>
+          <td>Name: <%=person.name%></td>
+        </tr>
+        <tr>
+          <td>Company: <%=person.company%></td>
+        </tr>
+    </table>
+    <table class="review" id="review2">
+        <tr>
+            <td>Keys:</td>
+            <%if(type != 'res'){%>
+            <td>Return Time(s):</td>
+            <%}%>
+        </tr>
+        <% for(var i=0; i<keys.length; i++){%>
+        <tr>
+            <td><%=keys[i].keyNum%></td> 
+            <%if(type != 'res'){%> 
+            <td><%=keys[i].predictedTime.toLocaleTimeString('en-US')%></td>
+            <%}%>
+        </tr>
+        <%}%> 
+    </table>
+    <img id="signImage" src='<%=person.signiture.toString('utf-8')%>'>
+
+    <form id="formCenter" method="POST" action="/keycheckout/<%=type%>/complete">
+        <%if(type == 'res'){%>
+        <div class="block">
+            <%   
+                var date = new Date();
+                var date2 = new Date();
+                //16
+                date2.setHours(23,30,0,0);
+                date.setMinutes(-(date.getTimezoneOffset()));
+                date2.setMinutes(-(date2.getTimezoneOffset()));
+                if(date.getTime() > date2.getTime()){
+            %>
+                <p>ERROR: TIME KEEPING ERROR, please consult website administrators</p>
+            <%}%>
+            <label>When will you return the key?</label>
+            <input type="datetime-local" id="returnTime" name="returnTime" min="<%=date.toISOString().slice(0, 17)%>00"  max="<%=date2.toISOString().slice(0, 19)%>" required>
+            <input type="hidden" id="timeoffset" name="timeoffset" value="<%=date.getTimezoneOffset()%>">
+        </div>
+        <%}%>
+
+
+        <input type="hidden" name="personID" value="<%=person.personID%>">
+        <div class="block">
+        <%if(type == 'return'){%>
+            <label>Attendant Initials</label>
+            <input type="text" name="attend2" required>
+            <h6>Please make sure all returned keys match above before confirming.</h6>
+        <%}else{%>
+            <label>Attendant Initials</label>
+            <input type="text" name="attend" required>
+        <%}%>
+        </div>
+
+        <div id="submitWrapper">
+            <input id="submit" type="image" src="/Images/confirm.svg" alt="Submit" />
+        </div>
+    </form>
+    <script src="/signiture.js"></script>
+</body>
+</html>

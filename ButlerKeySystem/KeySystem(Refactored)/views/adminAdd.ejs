@@ -1,0 +1,41 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>BU Key Request</title>
+    <link rel="stylesheet" type="text/css" href="/StyleSheet.css">
+</head>
+
+<body>
+    <div id="backWrapper">
+        <a id="back" href="/admin">
+            <img src="/Images/back.svg" alt="back"/>
+        </a>
+    </div>
+    <br>
+    <% if (admins == null){%>
+    <h1>No Admin Records</h1>
+    <%}else{%>
+    <table class="review" id="admin">
+        <div class="container"> 
+            <tr >
+                <th>Email</th>
+            </tr>
+            <% for(let i = 0; i < admins.length; i++) { %>
+                <tr>
+                    <td><%= admins[i].email %></td>
+                </tr>
+            <% } %>
+        </div>
+    </table>
+    <%}%>
+    <div class="block">
+    <form id="formCenter" method="POST" action="/admin/addAdmin">
+        <label>New Admin Email</label>
+        <input type="text" name="newAdminEmail" required>
+        <div id="submitWrapper">
+            <input id="submit" type="image" src="/Images/confirm.svg" alt="Submit" />
+        </div>
+    </form>
+    </div>
+</body>
+</html>
